@@ -285,10 +285,9 @@ const ModifyModifierList: React.FC = () => {
   const [hasChangeInModifiers, setHasChangeInModifiers] = useState(false);
 
   useEffect(() => {
-    const isGroupSelectionChanged = isGroupSelectorEnabled && !isEqual(id, selectedGroup);
-    setHasChangeInModifiers(!isEqual(initialSelectedModifiers, modifiers) || isGroupSelectionChanged);
-  }, [id, initialSelectedModifiers, isGroupSelectorEnabled, modifiers, selectedGroup, selectedSizeId]);
-
+    setHasChangeInModifiers(!isEqual(initialSelectedModifiers, modifiers));
+  }, [initialSelectedModifiers, modifiers]);
+  
   return (
     <View style={styles.container} {...getAccessibilityLabel('', 'extrasProductModifyModifierScreenContainer')}>
       {isGroupSelectorEnabled && (
